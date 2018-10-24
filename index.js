@@ -1,34 +1,6 @@
 
-
-const Heading = (props) => {
-  const {headingText, headingStyle, imgSrc, imgAlt, figCaption, figcaptionRef, figcaptionStyle} = props.config;
-  console.log(headingText);
-  return (  
-    <React.Fragment>  
-      <h1 style={headingStyle}>{headingText}</h1> 
-      <figure>
-        <img src={imgSrc} alt={imgAlt} />
-        <figcaption style={figcaptionStyle}>
-          {figCaption} Ref: <a href={figcaptionRef}>Wikipedia</a>
-        </figcaption>
-      </figure>
-    </React.Fragment>
-  );
-};
-
-const Hr = () => {
-  return (<div style={{height:0,borderBottom:'1px dashed #666',margin:'2em 0'}}></div>);
-};
-
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      landings: []      
-    };
-
-    this.headingConfig = {
+const Heading = () => {
+  const config = {
       headingText: 'Meteorite Landings',
       headingStyle: {
         fontFamily: 'sans-serif',
@@ -47,6 +19,31 @@ class App extends React.Component {
         lineHeight: 1.6
       }            
     };
+
+  return (  
+    <React.Fragment>  
+      <h1 style={config.headingStyle}>{config.headingText}</h1> 
+      <figure>
+        <img src={config.imgSrc} alt={config.imgAlt} />
+        <figcaption style={config.figcaptionStyle}>
+          {config.figCaption} Ref: <a href={config.figcaptionRef}>Wikipedia</a>
+        </figcaption>
+      </figure>
+    </React.Fragment>
+  );
+};
+
+const Hr = () => {
+  return (<div style={{height:0,borderBottom:'1px dashed #666',margin:'2em 0'}}></div>);
+};
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      landings: []      
+    };    
   }
 
   componentDidMount() {    
@@ -71,7 +68,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <header>
-          <Heading config={this.headingConfig} />
+          <Heading />
           <Hr />         
         </header>
         <main>
