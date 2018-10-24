@@ -1,1 +1,1 @@
-# meteorite-landings-app-using-script-tags
+# meteorite landings app using script tags
